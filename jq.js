@@ -21,8 +21,12 @@
 			</div>\
 		</div>\
 	');
+	
 
+	/*btn*/
 	var JqBtn = $('[data-jq-button]');
+	/*btn*/
+
 	var JqNavigationClass = 'jq-navigation--list';
 	/* Настройки */
 

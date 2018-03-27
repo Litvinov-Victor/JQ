@@ -2,6 +2,9 @@
 
 	/* Поиск и клонирование */
 	var JqNavigation = $('[data-jq]');
+	var JqBtn = $('[data-jq--button]');
+	var JqNavTop = $('[data-jq--top]').clone();
+	var JqNavBot = $('[data-jq--bot]').clone();
 	var JqNavigationClone = JqNavigation.clone();
 	/* Поиск и клонирование */
 
@@ -16,18 +19,17 @@
 					</svg>\
 				</div>\
 				<div class="jq-nav__scroller">\
+					<div class="jq-nav__top"></div>\
 					<div class="jq-nav__content"></div>\
+					<div class="jq-nav__bot"></div>\
 				</div>\
 			</div>\
 		</div>\
 	');
 
-
-	/*btn*/
-	var JqBtn = $('[data-jq--button]');
-	/*btn*/
-
 	var JqNavigationClass = 'jq-navigation--list';
+	var JqNavigationTop   = 'jq-navigation--top';
+	var JqNavigationBot   = 'jq-navigation--bot';
 	/* Настройки */
 
 	/* Очистка тега */
@@ -35,9 +37,15 @@
 	JqNavigationClone.removeAttr('style');
 	JqNavigationClone.removeAttr('data-jq');
 	JqNavigationClone.removeAttr('data-jq--style');
+	JqNavTop.removeAttr('class');
+	JqNavTop.removeAttr('style');
+	JqNavBot.removeAttr('class');
+	JqNavBot.removeAttr('style');
 	/* Очистка тега */
 
 	JqNavigationClone.attr('class', JqNavigationClass);
+	JqNavTop.attr('class', JqNavigationTop);
+	JqNavBot.attr('class', JqNavigationBot);
 
 
 	if(JqNavigation.length) {
@@ -80,6 +88,8 @@
 
 	/* Строим заголовки и названия */
 	$('.jq-nav__content').append(JqNavigationClone);
+	$('.jq-nav__top').append(JqNavTop);
+	$('.jq-nav__bot').append(JqNavBot);
 	$('.jq-nav__content').each(function(){
 		$(this).find('.jq-navigation--list').wrap('<div class="jq-navigation--list--wrapp"></div>');
 		$(this).find('.jq-navigation--list--wrapp').prepend('<div class="jq-navigation--list--title"></div>');

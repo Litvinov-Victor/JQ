@@ -1,5 +1,5 @@
 # JQ
-jq navigation
+jQuery Navigation Mobile Bar
 
 # Initialization
 
